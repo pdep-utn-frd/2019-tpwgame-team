@@ -1,0 +1,32 @@
+import personaje.*
+import collectibles.*
+import wollok.game.*
+
+program juego {
+	
+//	Ventana
+	game.title("Juego")
+	game.height(15)
+	game.width(20)
+	game.ground("suelo1.png")
+
+//	VISUALES
+	game.addVisualIn(alpiste, game.at(10,10))
+	game.addVisualIn(manzana, game.at(5,10))
+	game.addVisualIn(alpiste, game.at(2,8))
+	game.addVisualIn(manzana, game.at(10,8))
+	game.addVisual(pepita)
+	
+
+
+//	TECLADO
+	keyboard.h().onPressDo { game.say(pepita, "Oli") }
+
+
+	keyboard.up().onPressDo { pepita.move(pepita.position().up(1)) }
+	keyboard.down().onPressDo { pepita.move(pepita.position().down(1)) }
+	keyboard.left().onPressDo { pepita.move(pepita.position().left(1)) }
+	keyboard.right().onPressDo { pepita.move(pepita.position().right(1)) }
+//	START
+	game.start()
+}
