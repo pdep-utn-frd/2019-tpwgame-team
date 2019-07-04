@@ -1,16 +1,22 @@
 
 import wollok.game.*
 
-object asd {
-	var property energia = 100
+object isaaac {
+	var property monedas = 0
 
 	var property position = game.at(3,3)
-	method image() = "asd.png"
+	method image() = "isaaac.png"
 
 	method move(nuevaPosicion) {
 		self.position(nuevaPosicion)
 	}
 
+	method agarrarMoneda(){
+		monedas += 1
+	}
+	method agarro20(){
+		return monedas >= 20
+	}
 	}
 
 	
