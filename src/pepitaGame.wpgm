@@ -13,7 +13,7 @@ program buscaMonedas {
 
 //	VISUALES
 	game.addVisual(isaac)
-	game.onTick(2000, "AgregarMoneda",{juego.agregarMoneda()})
+	game.onTick(3000, "AgregarMoneda",{juego.agregarMoneda()})
 
 
 //	TECLADO

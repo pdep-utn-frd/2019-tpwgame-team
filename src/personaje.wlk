@@ -33,7 +33,7 @@ object isaac {
 	}
 	method moverseIzquierda(){
 		self.move(self.position().left(1))
-		image = "isaacizqurida.png"
+		image = "isaacizquierda.png"
 	}
 	}
 
