@@ -2,34 +2,30 @@ import personaje.*
 import coleccionables.*
 import wollok.game.*
 
-program juego {
+program buscaMonedas {
+	
 	
 //	Ventana
 	game.title("Juego")
 	game.height(13)
 	game.width(20)
-	game.boardGround("fondo.jpg")
+	game.boardGround("suelo1.png")
 
 //	VISUALES
-//	game.addVisualIn(coin1, game.at(3.randomUpTo(15).roundUp(), 3.randomUpTo(15).roundUp()))
-	//game.addVisualIn(coin2, game.at(3.randomUpTo(15).roundUp(), 3.randomUpTo(15).roundUp()))	
-	//game.addVisualIn(coin3, game.at(3.randomUpTo(15).roundUp(), 3.randomUpTo(15).roundUp()))
-	//game.addVisualIn(coin4, game.at(3.randomUpTo(15).roundUp(), 3.randomUpTo(15).roundUp()))
 	game.addVisual(isaaac)
-	game.onTick(2000, "AgregarMoneda",{game.addVisualIn(coin1, game.at(1.randomUpTo(20).roundUp(), 1.randomUpTo(20).roundUp()))})
-	game.onTick(2000, "AgregarMoneda",{game.addVisualIn(coin2, game.at(1.randomUpTo(20).roundUp(), 1.randomUpTo(20).roundUp()))})
-	game.onTick(2000, "AgregarMoneda",{game.addVisualIn(coin3, game.at(1.randomUpTo(20).roundUp(), 1.randomUpTo(20).roundUp()))})
+	game.onTick(2000, "AgregarMoneda",{juego.agregarMoneda()})
 
 
 //	TECLADO
 	keyboard.h().onPressDo { game.say(isaaac, "Oli") }
-	game.whenCollideDo(isaaac,{moneda => game.removeVisual(moneda)})
-	game.whenCollideDo(isaaac,{moneda => isaaac.agarrarMoneda()})
-	keyboard.up().onPressDo { isaaac.move(isaaac.position().up(1)) }
-	keyboard.down().onPressDo { isaaac.move(isaaac.position().down(1)) }
-	keyboard.left().onPressDo { isaaac.move(isaaac.position().left(1)) }
-	keyboard.right().onPressDo { isaaac.move(isaaac.position().right(1)) }
+	
+	game.whenCollideDo(isaaac,{moneda => isaaac.agarrarMoneda(moneda)})
+	keyboard.w().onPressDo { isaaac.move(isaaac.position().up(1)) }
+	keyboard.s().onPressDo { isaaac.move(isaaac.position().down(1)) }
+	keyboard.a().onPressDo { isaaac.move(isaaac.position().left(1)) }
+	keyboard.d().onPressDo { isaaac.move(isaaac.position().right(1)) }
 //	START
 	game.start()
-	game.stop()
+	
+	
 }
