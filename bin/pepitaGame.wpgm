@@ -24,6 +24,7 @@ program buscaMonedas {
 	keyboard.s().onPressDo { isaaac.move(isaaac.position().down(1)) }
 	keyboard.a().onPressDo { isaaac.move(isaaac.position().left(1)) }
 	keyboard.d().onPressDo { isaaac.move(isaaac.position().right(1)) }
+	
 //	START
 	game.start()
 	

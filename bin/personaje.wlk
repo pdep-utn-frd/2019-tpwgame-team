@@ -14,9 +14,10 @@ object isaaac {
 
 	method agarrarMoneda(moneda){
 		game.removeVisual(moneda)
-		monedas += 1
-		// game.say(self,juego.monedasenpantalla().toString())
 		juego.restarMoneda()
+		monedas += 1
+		game.say(self,"Me quedan: " + juego.monedasenpantalla().toString())
+		
 		juego.verSiTermina()
 	}
 	}
@@ -38,8 +39,10 @@ object juego{
 	method verSiTermina(){
 		if (self.noHayMonedas()){
 			game.say(isaaac ,"JUEGO TERMINADO" )
-			game.removeTickEvent("AgarrarMoneda")
-			game.stop()
+			game.removeTickEvent("AgregarMoneda")
+			game.say(isaaac , "Presione Enter para cerrar")
+			keyboard.enter().onPressDo {game.stop() }
+			
 		}
 	}
 }
