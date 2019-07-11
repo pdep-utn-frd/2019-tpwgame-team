@@ -2,11 +2,10 @@ import coleccionables.*
 
 import wollok.game.*
 
-object isaaac {
+object isaac {
 	var property monedas = 0
-
+	var property image = "isaac.png"
 	var property position = game.at(3,3)
-	method image() = "isaaac.png"
 
 	method move(nuevaPosicion) {
 		self.position(nuevaPosicion)
@@ -19,6 +18,22 @@ object isaaac {
 		game.say(self,"Me quedan: " + juego.monedasenpantalla().toString())
 		
 		juego.verSiTermina()
+	}
+	method moverseArriba(){
+		 self.move(self.position().up(1))
+		image = "isaacatras.png"
+	}
+	method moverseAbajo(){
+		self.move(self.position().down(1))
+		image = "isaac.png"
+	}
+	method moverseDerecha(){
+		self.move(self.position().right(1))
+		image = "isaacderecha.png"
+	}
+	method moverseIzquierda(){
+		self.move(self.position().left(1))
+		image = "isaacizqurida.png"
 	}
 	}
 
@@ -38,9 +53,9 @@ object juego{
 	}
 	method verSiTermina(){
 		if (self.noHayMonedas()){
-			game.say(isaaac ,"JUEGO TERMINADO" )
+			game.say(isaac ,"JUEGO TERMINADO" )
 			game.removeTickEvent("AgregarMoneda")
-			game.say(isaaac , "Presione Enter para cerrar")
+			game.say(isaac , "Presione Enter para cerrar")
 			keyboard.enter().onPressDo {game.stop() }
 			
 		}
