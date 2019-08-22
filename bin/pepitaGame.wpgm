@@ -2,6 +2,7 @@ import personaje.*
 import coleccionables.*
 import wollok.game.*
 
+
 program buscaMonedas {
 	
 	

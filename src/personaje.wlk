@@ -1,4 +1,5 @@
 import coleccionables.* 
+// import direcciones.*
 
 import wollok.game.*
 
